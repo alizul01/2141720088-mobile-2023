@@ -87,6 +87,8 @@ void main() {
 }
 ```
 
+Referensi : [Dart Documentation](https://dart.dev/language/variables)
+
 | No | Nama                  | Absen | NIM        |
 |----|-----------------------|-------|------------|
 | 1  | Bagus Rezky Adhyaksa  | 07    | 2141720210 |
