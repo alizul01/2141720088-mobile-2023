@@ -9,6 +9,11 @@ Week 02 merupakan week kedua dari pertemuan kuliah mobile development, di pertem
 Melakukan modifikasi sesuai dengan kode yang diminta, yaitu perulangan dan variable
 
 #### Source Code
+
+##### Person Object (_Just for fun_)
+![img.png](docs/lib-nomor-1.png)
+
+##### Main
 ![img.png](docs/soal-nomor-1.png)
 
 #### Output
