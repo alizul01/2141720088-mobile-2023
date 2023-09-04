@@ -34,6 +34,18 @@ Dalam bahasa lain, mencoba ini dapat menyebabkan _runtime error_,
 tapi compiler Dart dapat mencegah runtime error.
 
 // Contoh
+```dart
+String? nullableName; // Declare a nullable variable
+
+void main() {
+  nullableName = "Zaki"; // Initialize the nullable variable
+  print(nullableName); // Access the nullable variable
+
+// Declare a non nullable variable
+  String nonNullableName = "Naresh"; 
+  print(nonNullableName);
+}
+```
 
 ## Late Variables
 
@@ -46,7 +58,34 @@ Kalau kamu udah yakin nantinya variabel akan diinisialisasi sebelum digunakan, n
 error, kamu bisa memperbaiki kesalahan tersebut dengan memberikan _late_
 
 // Contoh
+```dart
+late String name; // Declare a late variable
 
+void main() {
+  name = "Andi"; // Initialize the late variable
+  print(name); // Access the late variable
+}
+```
+## Contoh Penggabungan Late dan Null dalam satu file 
+```dart
+void main() {
+  // variable Late
+  late String lateName; // Declare a late variable
+  lateName = "Alivan"; // Initialize the late variable
+  print(lateName); // Access the late variable
+
+  // variable Null
+  String? nullableName; // Declare a nullable variable
+  nullableName = 'Rezky';
+  print(nullableName); // This will not cause a compile-time error, but a runtime error if nullableName is null
+
+  String nonNullableName = "Alizul"; // Declare a non nullable variable
+  print(nonNullableName);
+
+  String? nullableNam; // Declare a nullable variable
+  print(nullableNam); // This will not cause a compile-time error, but a runtime error if nullableNam is null
+}
+```
 ## Kapan pakai Null Safety, kapan Pakai Late Variables?
 
 // Penjelasan
