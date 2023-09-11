@@ -47,6 +47,8 @@ void main() {
 }
 ```
 
+Break berfungsi untuk melakukan pemberhentian sebuah looping, use casenya biasa digunakan untuk berhentikan looping saat mencapai kondisi tertentu. Sedangkan continue digunakan untuk skip sebuah index, use case sesuai kode di atas jika index bernilai rentang 1 - 7 maka tidak akan dicetak. Jika index bernilai 21 maka loop diberhentikan
+
 ### Prime Challenge
 
 Saya menggunakan referensi algoritma [Sieve of Eratosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes) untuk melakukan perhitungan bilangan prima secara optimal. Algoritma tersebut memiliki kompleksitas $O(n \\log \\log n)$
