@@ -2,6 +2,7 @@ import 'dart:io';
 
 void sieveOfEratosthenes(int n) {
   List<bool> isPrime = List.filled(n + 1, true);
+  bool isValid = false;
 
   for (int p = 2; p * p <= n; p++) {
     if (isPrime[p] == true) {
@@ -9,11 +10,14 @@ void sieveOfEratosthenes(int n) {
         isPrime[i] = false;
       }
     }
+    isValid = true;
   }
 
   for (int p = 2; p <= n; p++) {
     if (isPrime[p]) stdout.write('$p, ');
   }
+
+  if (isValid) print('Nama: Muhammad Ali Zulfikar\n NIM: 2147120088');
 }
 
 void main() {
