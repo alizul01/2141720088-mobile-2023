@@ -61,6 +61,70 @@ Output codenya adalah sebagai berikut
 
 Algoritma SoF melakukan pengeleminasian terhadap kelipatan sebuah list angka $ke-n$ terhadap kelipatan angka $i$, nantinya bilangan prima dengan kelipatan angka tersebut akan dieliminasi dan yang tersisa adalah sebuah angka yang bukan kelipatan angka $i$. 
 
+
+### Playground Looping, Object, Conditional, and others!
+
+[Main](bin/week_03.dart)
+
+```dart
+import 'package:week_03/people.dart';
+
+void main() {
+  var ali = Person(name: 'Ali Zulfikar', age: 20, maritalStatus: MaritalStatus.single);
+  var tio = Person(name: 'Tio Irawan', age: 20, maritalStatus: MaritalStatus.married);
+  var rezky = Person(name: 'Bagus Rezky', age: 20, maritalStatus: MaritalStatus.single);
+
+  ali.addFriend(tio);
+  ali.addFriend(rezky);
+
+  ali.introduceYourself();
+  ali.listFriends();
+
+  tio.introduceYourself();
+}
+```
+
+[People.dart](lib/people.dart)
+
+```dart
+class Person {
+  String name;
+  int age;
+  MaritalStatus maritalStatus;
+  List<Person> friends = [];
+
+  Person({required this.name, required this.age, required this.maritalStatus});
+
+  void introduceYourself() {
+    print(
+        'Aloha, namaku $name, umurku $age, dan statusku ${maritalStatus.getStatus()}');
+  }
+
+  void addFriend(Person person) {
+    friends.add(person);
+  }
+
+  void listFriends() {
+    print('$name memiliki teman-teman berikut:');
+    for (var friend in friends) {
+      print(friend.name);
+    }
+  }
+}
+
+enum MaritalStatus { single, married }
+
+extension MaritalStatusExtension on MaritalStatus {
+  String getStatus() {
+    return this == MaritalStatus.single
+        ? 'masih jomblo'
+        : 'sudah punya pasangan';
+  }
+}
+```
+
+Penggunaan ternary condition digunakan untuk melakukan pengecekan kondisi `MaritalStatus`, penggunaan looping dan foreach digunakan untuk list pertemanan
+
 ## Authors
 
 [@alizul01](https://www.github.com/alizul01)
