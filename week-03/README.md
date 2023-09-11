@@ -57,7 +57,7 @@ Output codenya adalah sebagai berikut
 
 ![img.png](assets/output_prime_challenge.png)
 
-Algoritma SoF melakukan pengeleminasian terhadap kelipatan sebuah list angka ke-$n$ terhadap kelipatan angka $i$, nantinya bilangan prima dengan kelipatan angka tersebut akan dieliminasi dan yang tersisa adalah sebuah angka yang bukan kelipatan angka $i$. 
+Algoritma SoF melakukan pengeleminasian terhadap kelipatan sebuah list angka $ke-n$ terhadap kelipatan angka $i$, nantinya bilangan prima dengan kelipatan angka tersebut akan dieliminasi dan yang tersisa adalah sebuah angka yang bukan kelipatan angka $i$. 
 
 ## Authors
 
