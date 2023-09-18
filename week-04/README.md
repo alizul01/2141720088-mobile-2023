@@ -304,9 +304,79 @@ void main() {
 
 #### Jelaskan perbedaan Lexical scope dan Lexical closures! Berikan contohnya!
 
+**Lexical scope** _adalah ruang lingkup di mana nama variabel dapat diakses dalam sebuah program_.
+Di dalam bahasa Dart, lexical scope ditentukan oleh penempatan suatu fungsi. Variabel yang
+dideklarasikan di luar fungsi dapat diakses oleh fungsi yang bersarang di dalamnya.
+Contoh :
+
+```dart
+
+bool topLevel = true;
+
+void main() {
+  var insideMain = true;
+
+  void myFunction() {
+    var insideFunction = true;
+
+    void nestedFunction() {
+      var insideNestedFunction = true;
+
+      assert(topLevel);
+      assert(insideMain);
+      assert(insideFunction);
+      assert(insideNestedFunction);
+    }
+  }
+}
+
+```
+
+Sedangkan **Lexical closures** adalah _fungsi yang dapat mengakses variabel dari ruang lingkup
+lexical tempat fungsi tersebut didefinisikan_. Fungsi ini dapat **menutup** variabel tersebut dan
+membawanya bersama saat fungsi dipanggil di tempat lain, contoh
+
+```dart
+Function makeAdder(int addBy) {
+  return (int i) => addBy + i;
+}
+
+void main() {
+  var add2 = makeAdder(2);
+  var add4 = makeAdder(4);
+
+  assert(add2(3) == 5);
+  assert(add4(3) == 7);
+}
+
+```
 
 #### Jelaskan dengan contoh cara membuat return multiple value di Functions!
 
+Untuk me-return sebuah nilai ganda (multiple value), kita dapat memanfaatkan beberapa cara. Salah
+satunya adalah memanfaatkan List
+
+```dart
+List<int> minMax(List<int> numbers) {
+  int min = numbers[0];
+  int max = numbers[0];
+  for (int n in numbers) {
+    if (n < min) min = n;
+    if (n > max) max = n;
+  }
+  return [min, max]; 
+}
+
+void main() {
+  var numbers = [10, 5, 20, 15, 8];
+  var result = minMax(numbers); // Get the list of two values
+  print('The minimum is ${result[0]}'); // Access the first value
+  print('The maximum is ${result[1]}'); // Access the second value
+}
+```
+
+Dapat dilihat bahwa fungsi tersebut me-return sebuah value yang ganda, bukan hanya 1. Ada cara
+lainnya tergantung konteks yang ingin diselesaikan. 
 
 ## Authors
 
