@@ -4,7 +4,8 @@
 
 ### Challenge 1
 
-Untuk list variable sendiri, apabila di awal sudah terdefinisi hanya int maka jika seterusnya apabila ingin diganti di luar inisialisasi akan terjadi error
+Untuk list variable sendiri, apabila di awal sudah terdefinisi hanya int maka jika seterusnya
+apabila ingin diganti di luar inisialisasi akan terjadi error
 
 ```dart
 List challenge_1() {
@@ -37,7 +38,7 @@ List challenge_1() {
 
 ### Challenge 02
 
-Eksperimen data set 
+Eksperimen data set
 
 ```dart
 void challenge_2() {
@@ -47,10 +48,10 @@ void challenge_2() {
   var names1 = <String>{};
   Set<String> names2 = {}; // This works, too.
   var names3 = {}; // Creates a map, not a set.
-  
+
   names1.add('Ali Zulfikar');
   names2.add('2141720088');
-  names3.addAll({'a' : 2});
+  names3.addAll({'a': 2});
 
   print(names1);
   print(names2);
@@ -58,7 +59,8 @@ void challenge_2() {
 }
 ```
 
-Add digunakan untuk menambah sebuah value ke dalam sebuah list / set karena variable tersebut bersifat dinamis
+Add digunakan untuk menambah sebuah value ke dalam sebuah list / set karena variable tersebut
+bersifat dinamis
 
 ### Challenge 03
 
@@ -87,7 +89,8 @@ void challenge_3() {
 }
 ```
 
-Untuk penambahan nama dan NIM sesuai dengan challenge yang diberikan, saya menggunakan addAll untuk menambah sebuah value yang memiliki key value pair
+Untuk penambahan nama dan NIM sesuai dengan challenge yang diberikan, saya menggunakan addAll untuk
+menambah sebuah value yang memiliki key value pair
 
 ```dart
 void challenge_3() {
@@ -123,7 +126,8 @@ void challenge_04() {
 }
 ```
 
-Pada langkah selanjutnya menggunakan sebuah pengkondisian di dalam sebuah list, hal tersebut error karena promoActive belum diinisialisasikan
+Pada langkah selanjutnya menggunakan sebuah pengkondisian di dalam sebuah list, hal tersebut error
+karena promoActive belum diinisialisasikan
 
 ```dart
 void challenge_04() {
@@ -143,7 +147,8 @@ void challenge_04() {
 }
 ```
 
-Terakhir adalah pemanfaatan for di dalam sebuah list, tentu for dalam sebuah list ini untuk mempersingkat kode yang harusnya dalam beberapa baris bisa menjadi 1 baris saja
+Terakhir adalah pemanfaatan for di dalam sebuah list, tentu for dalam sebuah list ini untuk
+mempersingkat kode yang harusnya dalam beberapa baris bisa menjadi 1 baris saja
 
 ```dart
 void challenge_04() {
@@ -161,6 +166,7 @@ Output
 ### Challenge 05
 
 Pada tahap pertama dilakukan sebuah pembuatan Records
+
 ```dart
 void challenge_5() {
   var record = ('first', a: 2, b: true, 'last');
@@ -168,7 +174,8 @@ void challenge_5() {
 }
 ```
 
-Didapatkan bahwa tidak terjadi error, kode di atas bertujuan untuk membuat sebuah records dengan nama variable `record`
+Didapatkan bahwa tidak terjadi error, kode di atas bertujuan untuk membuat sebuah records dengan
+nama variable `record`
 
 Output
 
@@ -181,7 +188,8 @@ void challenge_5() {
 }
 ```
 
-Kode di atas mengalami error karena mahasiswa ingin di-print padahal masih null, untuk memperbaiki perlu dibuat seperti ini
+Kode di atas mengalami error karena mahasiswa ingin di-print padahal masih null, untuk memperbaiki
+perlu dibuat seperti ini
 
 ```dart
 void challenge_5() {
@@ -203,7 +211,102 @@ void challenge_5() {
 }
 ```
 
-`$1` dan `$2` menandakan mengakses sebuah nilai yang bukan `key` seperti a dan b serta uniknya records dimulai dari 1 bukan 0
+`$1` dan `$2` menandakan mengakses sebuah nilai yang bukan `key` seperti a dan b serta uniknya
+records dimulai dari 1 bukan 0
+
+### Challenge
+
+#### Jelaskan yang dimaksud Functions dalam bahasa Dart!
+
+_Functions_ adalah sekumpulan baris kode yang dapat menerima input, melakukan proses, lalu
+menghasilkan output. Functions dimanfaatkan untuk mengorganisir program menjadi suatu blok-blok kode
+yang logis dan meningkatkan penggunaan ulang kode.
+
+```dart
+int function_name(parameters) {
+  // Body of function
+  return value;
+}
+```
+
+#### Jelaskan jenis-jenis parameter di Functions beserta contoh sintaksnya!
+
+Ada tiga jenis parameter di dalam function Dart
+
+- Opsional
+  Parameter ini dapat diabaikan saat memanggil fungsi. Parameter ditandai dengan tanda kurung
+  siku ([]). Contoh:
+
+```dart
+void gfg1(int g1, [var g2]) {
+  // Creating function 1
+  print("g1 is $g1");
+  print("g2 is $g2");
+}
+
+void main() {
+  gfg1(01);
+}
+```
+
+- Named Parameter
+  Parameter ini harus disebutkan dengan nama saat memanggil fungsi. Paramter ini diberi tanda kurung
+  kurawal ({})
+
+```dart
+void gfg2(int g1, {var g2, var g3}) {
+  print("g1 is $g1");
+  print("g2 is $g2");
+  print("g3 is $g3");
+}
+
+void main() {
+  gfg2(01, g3: 12);
+}
+```
+
+- Default Parameter
+  Parameter ini memiliki nilai awal yang ditentukan selain `null`. Nilai awal tersebut harus berupa
+  konstanta saat kompilasi. Ditandai dengan (`=`).
+
+```dart
+void gfg3(int g1, {int g2 = 12}) {
+  print("g1 is $g1");
+  print("g2 is $g2");
+}
+
+void main() {
+  gfg3(01);
+}
+```
+
+#### Jelaskan maksud Functions sebagai first-class objects beserta contoh sintaknya!
+
+Functions sebagai `first-class objects` memiliki arti yaitu functions adalah objek yang memiliki
+tipe **Function**. Hal ini berarti bahwa functions dapat dimasukkan ke dalam variabel.
+
+#### Apa itu Anonymous Functions? Jelaskan dan berikan contohnya!
+
+Anonymous Functions adalah **fungsi yang tidak memiliki nama**. Fungsi ini biasanya digunakan
+sebagai argumen untuk fungsi lain atau ditugaskan ke variabel. Ditandakan dengan
+tanda kurung kurawal ({}) atau tanda panah (=>). Contoh,
+
+```dart
+void main() {
+  (list as List<String>).forEach((item) {
+    print('${list.indexOf(item)}: $item');
+  });
+
+  (list as List<String>).forEach(
+          (item) => print('${list.indexOf(item)}: $item'));
+}
+```
+
+#### Jelaskan perbedaan Lexical scope dan Lexical closures! Berikan contohnya!
+
+
+#### Jelaskan dengan contoh cara membuat return multiple value di Functions!
+
 
 ## Authors
 
