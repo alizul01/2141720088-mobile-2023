@@ -3,34 +3,34 @@
 ## Task's
 
 ### Challenge 1
-![img.png](assets/challenge_1.png)
+![img.png](docs/challenge_1.png)
 
 Sebuah kondisi didapatkan jika status-nya mahasiswa maka akan return nilai String 'masih mahasiswa', namun sebaliknya jika status-nya pekerja akan return nilai String 'sudah bekerja'
 
-![img.png](assets/output_1.png)
+![img.png](docs/output_1.png)
 
 ### Challenge 2
 
-![img.png](assets/challenge_2.png)
+![img.png](docs/challenge_2.png)
 
 Sebuah looping tidak akan berhenti jika tidak ada kondisi untuk pemberhentian `break`, didapatkan hasilnya adalah
 
-![img.png](assets/output_2.png)
+![img.png](docs/output_2.png)
 
 ### Challenge 3
 
 
 #### 3.1 and 3.2
 
-![img.png](assets/challenge_3_1.png)
+![img.png](docs/challenge_3_1.png)
 
 Akan terjadi error karena perbedaan huruf besar kecil antara `Index` dengan `index`
 
-![img.png](assets/challenge_3_1_output.png)
+![img.png](docs/challenge_3_1_output.png)
 
 #### 3.3
 
-![img.png](assets/challenge_3_3.png)
+![img.png](docs/challenge_3_3.png)
 
 Tidak terjadi output karena kesalahan pengecekan kondisi, akan bekerja dengan sesuai harapan jika kondisi diganti menjadi seperti ini
 
@@ -85,7 +85,7 @@ void main() {
 
 Output codenya adalah sebagai berikut
 
-![img.png](assets/output_prime_challenge.png)
+![img.png](docs/output_prime_challenge.png)
 
 Algoritma SoF melakukan pengeleminasian terhadap kelipatan sebuah list angka $ke-n$ terhadap kelipatan angka $i$, nantinya bilangan prima dengan kelipatan angka tersebut akan dieliminasi dan yang tersisa adalah sebuah angka yang bukan kelipatan angka $i$. 
 
