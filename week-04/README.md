@@ -364,7 +364,7 @@ List<int> minMax(List<int> numbers) {
     if (n < min) min = n;
     if (n > max) max = n;
   }
-  return [min, max]; 
+  return [min, max];
 }
 
 void main() {
