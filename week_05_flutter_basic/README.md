@@ -43,3 +43,12 @@ Menambahkan FAB Widget
 ![img.png](docs/challenge-04-tanggal.png)
 
 Mengimplementasikan date picker di Flutter
+
+## Challenge
+
+![img.png](docs/challenge-05-01.png)
+![img.png](docs/challenge-05-02.png)
+
+Mengubah menjadi class sendiri - sendiri supaya lebih rapi
+
+![screen.gif](docs/screen.gif)
