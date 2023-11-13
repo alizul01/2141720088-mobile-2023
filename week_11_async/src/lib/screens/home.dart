@@ -8,20 +8,19 @@ class HomeScreen extends StatelessWidget {
 
   HomeScreen({Key? key}) : super(key: key);
 
+  // List of screen options
+  final List<Widget> screens = [
+    const CounterScreen(),
+    const FutureScreen(),
+    const CompleterScreen(), // Add CompleterScreen to the list
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Counter App'),
-      ),
       body: Obx(() {
         final selectedScreenIndex = appController.selectedScreenIndex.value;
-        if (selectedScreenIndex == 0) {
-          return const CounterScreen();
-        } else if (selectedScreenIndex == 1) {
-          return const FutureScreen();
-        }
-        return Container(); // You can handle more screens here
+        return screens[selectedScreenIndex];
       }),
       bottomNavigationBar: BottomNavigationBar(
         items: const [
@@ -32,6 +31,10 @@ class HomeScreen extends StatelessWidget {
           BottomNavigationBarItem(
             icon: Icon(Icons.timer),
             label: 'Future',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.ac_unit), // Add an icon for CompleterScreen
+            label: 'Completer',
           ),
         ],
         currentIndex: appController.selectedScreenIndex.value,

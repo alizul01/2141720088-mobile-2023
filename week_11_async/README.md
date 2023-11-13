@@ -9,3 +9,13 @@
 
 ![Alt text](image-1.png)
 
+3. Kode di atas adalah implementasi penggunaan `Completer` untuk membuat operasi asynchronous di Flutter. Berikut penjelasan singkatnya:
+3.1 `CompleterScreen` adalah widget yang digunakan untuk menampilkan contoh penggunaan `Completer` dalam Flutter.
+3.2 Dalam widget ini, terdapat sebuah variabel `result` yang digunakan untuk menampilkan hasil operasi asynchronous nanti.
+3.3 Saat tombol "Increment Counter (Async)" ditekan, `_incrementCounterAsync()` dipanggil.
+3.4 Di dalam `_incrementCounterAsync()`, kita mengatur `result` menjadi "Loading..." untuk menunjukkan bahwa proses sedang berlangsung.
+3.5 Kemudian, kita memanggil `getNumber()` yang mengembalikan hasil asynchronous menggunakan `Completer`.
+3.6 Di dalam `calculate(Completer<int> completer)`, kita menunggu selama 5 detik (simulasi operasi asynchronous) dan kemudian menyelesaikan `completer` dengan hasil 42.
+3.7 Setelah `getNumber()` selesai, kita menampilkan hasil dalam `result` jika operasi berhasil atau pesan kesalahan "An error occurred" jika terjadi kesalahan.
+
+![Alt text](image-2.png)
