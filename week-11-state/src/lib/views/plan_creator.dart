@@ -33,10 +33,15 @@ class _PlanCreatorScreen extends State<PlanCreatorScreen> {
           color: Theme.of(context).cardColor,
           elevation: 10,
           child: TextField(
-              controller: textController,
-              decoration: const InputDecoration(
-                  labelText: 'Add a plan', contentPadding: EdgeInsets.all(20)),
-              onEditingComplete: addPlan),
+            controller: textController,
+            onEditingComplete: addPlan,
+            decoration: const InputDecoration(
+                border: InputBorder.none,
+                contentPadding: EdgeInsets.all(20),
+                hintText: 'Enter a plan name'),
+            cursorColor: Theme.of(context).primaryColor,
+            style: Theme.of(context).textTheme.bodyMedium,
+          ),
         ));
   }
 
@@ -67,9 +72,9 @@ class _PlanCreatorScreen extends State<PlanCreatorScreen> {
       return Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Icon(Icons.note, size: 100, color: Colors.grey),
-            Text('Anda belum memiliki rencana apapun.',
-                style: Theme.of(context).textTheme.headlineSmall)
+            const Icon(Icons.note, size: 32, color: Colors.grey),
+            Text('You have no plans yet',
+                style: Theme.of(context).textTheme.titleLarge)
           ]);
     }
     return ListView.builder(
