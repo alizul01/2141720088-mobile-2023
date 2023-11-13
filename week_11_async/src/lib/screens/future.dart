@@ -34,21 +34,7 @@ class _FutureScreenState extends State<FutureScreen> {
             ElevatedButton(
               onPressed: () {
                 Future.delayed(const Duration(seconds: 2)).then((_) {
-                  getData().then((response) {
-                    if (response.statusCode == 200) {
-                      setState(() {
-                        res = response.body;
-                      });
-                    } else {
-                      setState(() {
-                        res = 'Error: ${response.statusCode}';
-                      });
-                    }
-                  }).catchError((error) {
-                    setState(() {
-                      res = 'Error: $error';
-                    });
-                  });
+                  _incrementCounterAsync();
                 });
               },
               child: const Text('Get Data'),
@@ -64,5 +50,26 @@ class _FutureScreenState extends State<FutureScreen> {
     const path = '/books/v1/volumes/junbDwAAQBAJ';
     final uri = Uri.https(authority, path);
     return await http.get(uri);
+  }
+
+  Future<String> fetchJoke() async {
+    try {
+      final joke = jokesRepository.getRandomJoke();
+      return joke;
+    } catch (error) {
+      return 'Error: $error';
+    }
+  }
+
+  Future<void> _incrementCounterAsync() async {
+    setState(() {
+      res = 'Loading...';
+    });
+
+    fetchJoke().then((value) {
+      setState(() {
+        res = value;
+      });
+    });
   }
 }

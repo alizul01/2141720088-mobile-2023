@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CounterScreen extends StatefulWidget {
-  const CounterScreen({super.key});
+  const CounterScreen({Key? key}) : super(key: key);
 
   @override
   State<CounterScreen> createState() => _CounterScreenState();
@@ -9,7 +9,7 @@ class CounterScreen extends StatefulWidget {
 
 class _CounterScreenState extends State<CounterScreen> {
   int counter = 0;
-  bool isLoading = false; // Flag to indicate whether data is being loaded
+  bool isLoading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +32,7 @@ class _CounterScreenState extends State<CounterScreen> {
               },
               child: const Text('Increment Counter (Async)'),
             ),
-            if (isLoading)
-              const CircularProgressIndicator(), // Display loading indicator while fetching data
+            if (isLoading) const CircularProgressIndicator(),
           ],
         ),
       ),
@@ -42,16 +41,26 @@ class _CounterScreenState extends State<CounterScreen> {
 
   Future<void> _incrementCounterAsync() async {
     setState(() {
-      isLoading = true; // Set loading flag to true while fetching data
+      isLoading = true;
     });
 
-    final one = await returnOneAsync();
-    final two = await returnTwoAsync();
-    final three = await returnThreeAsync();
+    final futures = Future.wait<int>([
+      returnOneAsync(),
+      returnTwoAsync(),
+      returnThreeAsync(),
+    ]);
 
-    setState(() {
-      counter = one + two + three;
-      isLoading = false; // Set loading flag to false when data is fetched
+    futures.then((List<int> results) {
+      int sum = results.fold(0, (int acc, int value) => acc + value);
+      setState(() {
+        counter = sum;
+        isLoading = false;
+      });
+    }).catchError((error) {
+      setState(() {
+        isLoading = false;
+        counter = 0;
+      });
     });
   }
 
