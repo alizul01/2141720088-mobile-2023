@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class CounterPage extends StatefulWidget {
-  const CounterPage({super.key});
+class CounterScreen extends StatefulWidget {
+  const CounterScreen({super.key});
 
   @override
-  State<CounterPage> createState() => _CounterPageState();
+  State<CounterScreen> createState() => _CounterScreenState();
 }
 
-class _CounterPageState extends State<CounterPage> {
+class _CounterScreenState extends State<CounterScreen> {
   int counter = 0;
   bool isLoading = false; // Flag to indicate whether data is being loaded
 

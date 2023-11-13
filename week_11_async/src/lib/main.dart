@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:week_11_async/screens/home.dart';
 import 'screens/screen_exporter.dart';
+import 'controller/app_controller.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,7 +13,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Counter',
       theme: ThemeData(
         primarySwatch: Colors.purple,
@@ -21,7 +24,24 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: const CounterPage(),
+      initialBinding: BindingsBuilder(() {
+        Get.put(AppController());
+      }),
+      home: HomeScreen(),
+      getPages: [
+        GetPage(
+          name: '/',
+          page: () => HomeScreen(),
+        ),
+        GetPage(
+          name: '/counter',
+          page: () => const CounterScreen(),
+        ),
+        GetPage(
+          name: '/future',
+          page: () => const FutureScreen(),
+        ),
+      ],
     );
   }
 }

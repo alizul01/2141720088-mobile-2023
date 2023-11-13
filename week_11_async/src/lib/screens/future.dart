@@ -3,14 +3,14 @@ import 'package:week_11_async/data/jokes.dart';
 import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
 
-class FuturePage extends StatefulWidget {
-  const FuturePage({super.key});
+class FutureScreen extends StatefulWidget {
+  const FutureScreen({super.key});
 
   @override
-  State<FuturePage> createState() => _FuturePageState();
+  State<FutureScreen> createState() => _FutureScreenState();
 }
 
-class _FuturePageState extends State<FuturePage> {
+class _FutureScreenState extends State<FutureScreen> {
   String res = '';
   final jokesRepository = JokesRepository();
 
