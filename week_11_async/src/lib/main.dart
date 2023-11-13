@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 import 'data/jokes.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:http/http.dart' as http;
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Dad Jokes App', // Ganti judul aplikasi
+      title: 'Dad Jokes App',
       theme: ThemeData(
         primarySwatch: Colors.lightBlue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -33,8 +33,7 @@ class FuturePage extends StatefulWidget {
 
 class _FuturePageState extends State<FuturePage> {
   String res = '';
-  final jokesRepository =
-      JokesRepository(); // Inisialisasi objek jokesRepository
+  final jokesRepository = JokesRepository();
 
   @override
   Widget build(BuildContext context) {
@@ -54,12 +53,23 @@ class _FuturePageState extends State<FuturePage> {
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () async {
-                // Tambahkan penundaan selama 2 detik sebelum menampilkan lelucon
-                await Future.delayed(const Duration(seconds: 2));
-                setState(() {
-                  res = jokesRepository
-                      .getRandomJoke(); // Ambil lelucon acak dari jokesRepository
+              onPressed: () {
+                Future.delayed(const Duration(seconds: 2)).then((_) {
+                  getData().then((response) {
+                    if (response.statusCode == 200) {
+                      setState(() {
+                        res = response.body;
+                      });
+                    } else {
+                      setState(() {
+                        res = 'Error: ${response.statusCode}';
+                      });
+                    }
+                  }).catchError((error) {
+                    setState(() {
+                      res = 'Error: $error';
+                    });
+                  });
                 });
               },
               child: const Text('Get Data'),
@@ -68,5 +78,12 @@ class _FuturePageState extends State<FuturePage> {
         ),
       ),
     );
+  }
+
+  Future<Response> getData() async {
+    const authority = 'www.googleapis.com';
+    const path = '/books/v1/volumes/junbDwAAQBAJ';
+    final uri = Uri.https(authority, path);
+    return await http.get(uri);
   }
 }
