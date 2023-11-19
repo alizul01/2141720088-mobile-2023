@@ -8,7 +8,7 @@
    2.2 Ini mencakup variabel bilangan bulat `counter` untuk melacak nilai penghitung.
    2.3 Ada variabel boolean `isLoading` yang digunakan sebagai penanda apakah data sedang dimuat. Ini diatur menjadi `false` ketika operasi selesai.
 
-   ![Alt teks](image-1.png)
+   ![Alt teks](docs/image-1.png)
 
 3. Kode di atas adalah untuk layar Flutter yang disebut `CompleterScreen` yang mengimplementasikan penggunaan `Completer` untuk operasi asinkron. Berikut adalah penjelasan singkatnya:
    3.1 `CompleterScreen` adalah widget yang digunakan untuk menampilkan contoh penggunaan `Completer` dalam Flutter.
@@ -19,7 +19,7 @@
    3.6 Di dalam `calculate(Completer<int> completer)`, kita menunggu selama 5 detik (simulasi operasi asinkron) dan kemudian menyelesaikan `completer` dengan hasil 42.
    3.7 Setelah `getNumber()` selesai, kita menampilkan hasil dalam `result` jika operasi berhasil atau pesan kesalahan "An error occurred" jika terjadi kesalahan.
 
-   ![Alt teks](image-2.png)
+   ![Alt teks](docs/image-2.png)
 4. Kode di atas menggunakan `Future.wait`, yang digunakan untuk menjalankan beberapa `Future` secara bersamaan dan menunggu hingga semua `Future` tersebut selesai. Berikut penjelasannya:
    - Kita mendefinisikan sebuah variabel `futures` yang merupakan hasil dari `Future.wait<int>()`.
    - Di dalam `Future.wait`, kita mengirimkan daftar `Future` yang akan dijalankan secara bersamaan. Dalam kasus ini, kita mengirimkan tiga `Future` yaitu `returnOneAsync()`, `returnTwoAsync()`, dan `returnThreeAsync()`.
@@ -28,5 +28,13 @@
    
    Dengan menggunakan `Future.wait`, kita dapat menjalankan beberapa operasi asinkron secara bersamaan dan menunggu hingga semuanya selesai sebelum melanjutkan eksekusi kode berikutnya.
 
-   ![Alt teks](image-3.png)
+   ![Alt teks](docs/image-3.png)
 5. `handleError` digunakan untuk mengatasi situasi di mana ada potensi kesalahan atau pengecualian yang dapat terjadi selama eksekusi kode asynchronous. Ini memungkinkan Anda untuk mengendalikan dan mengelola respons saat terjadi kesalahan, sehingga aplikasi Anda tidak akan menghentikan eksekusi sepenuhnya jika ada kesalahan.
+
+![Alt text](docs/image-3.png)
+6. `GeoLocator` adalah sebuah plugin yang digunakan untuk mendapatkan lokasi pengguna.
+7. Dengan menggunakan `Future Builder` jadi lebih rapi dan efisien
+8. Navigasi sudah diberikan, dapat terlihat di bagian bawah namun saya modifikasi
+![Alt text](docs/navigasi.png)
+9. Menambahkan `dialog` untuk menampilkan pesan
+![Alt text](docs/dialog.png)
