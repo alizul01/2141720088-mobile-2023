@@ -45,6 +45,10 @@ class MyApp extends StatelessWidget {
           name: '/completer', // Tambahkan rute untuk CompleterScreen
           page: () => const CompleterScreen(),
         ),
+        GetPage(
+          name: '/location',
+          page: () => const LocationScreen(),
+        ),
       ],
     );
   }

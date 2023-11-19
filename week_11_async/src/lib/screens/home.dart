@@ -8,11 +8,10 @@ class HomeScreen extends StatelessWidget {
 
   HomeScreen({Key? key}) : super(key: key);
 
-  // List of screen options
   final List<Widget> screens = [
     const CounterScreen(),
     const FutureScreen(),
-    const CompleterScreen(), // Add CompleterScreen to the list
+    const LocationScreen(),
   ];
 
   @override
@@ -33,8 +32,8 @@ class HomeScreen extends StatelessWidget {
             label: 'Future',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.ac_unit), // Add an icon for CompleterScreen
-            label: 'Completer',
+            icon: Icon(Icons.location_on),
+            label: 'Location',
           ),
         ],
         currentIndex: appController.selectedScreenIndex.value,
