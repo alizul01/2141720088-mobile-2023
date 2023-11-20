@@ -56,3 +56,9 @@ Fungsi `addRandomNumber` digunakan untuk menambahkan random number ke dalam stre
     c. Membuat subscription pada stream dan listen event. Setiap kali ada data baru pada stream, nilai tersebut ditambahkan ke dalam variabel values dan diupdate menggunakan setState.
     
 ![Alt text](image-3.png)
+6. Stream Builder
+6.1 Penjelasan
+    a. stream: Menggunakan stream dari objek NumberStream untuk mendapatkan data.
+    b. initialData: Nilai awal yang diberikan sebelum data aktual dari stream tersedia.
+    c. builder: Membangun antarmuka pengguna berdasarkan snapshot dari stream.
+![Alt text](image-4.png)
