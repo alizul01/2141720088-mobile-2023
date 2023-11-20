@@ -8,6 +8,10 @@ class NumberStream {
     streamController.sink.add(number);
   }
 
+  void addError() {
+    streamController.sink.addError('Error');
+  }
+
   close() {
     streamController.close();
   }
