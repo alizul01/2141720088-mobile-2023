@@ -17,6 +17,7 @@ class _StreamHomePageState extends State<StreamHomePage> {
   int lastNumber = 0;
   late StreamController<int> _numberStreamController;
   late NumberStream numberStream;
+  late StreamSubscription subscription;
 
   StreamTransformer<int, int> transformer =
       StreamTransformer<int, int>.fromHandlers(
@@ -39,7 +40,13 @@ class _StreamHomePageState extends State<StreamHomePage> {
   void addRandomNumber() {
     Random random = Random();
     int myNum = random.nextInt(10);
-    numberStream.addNumber(myNum);
+    if (!numberStream.streamController.isClosed) {
+      numberStream.addNumber(myNum);
+    } else {
+      setState(() {
+        lastNumber = -1;
+      });
+    }
   }
 
   @override
@@ -47,15 +54,21 @@ class _StreamHomePageState extends State<StreamHomePage> {
     numberStream = NumberStream();
     _numberStreamController = numberStream.streamController;
     Stream stream = _numberStreamController.stream;
-    stream.transform(transformer).listen((event) {
+    subscription = stream.listen((event) {
       setState(() {
         lastNumber = event;
       });
-    }).onError((error) {
+    });
+    subscription.onError((error) {
+      print(error);
       setState(() {
         lastNumber = -1;
       });
     });
+    subscription.onDone(() {
+      print('Done');
+    });
+
     super.initState();
     colorStream = ColorStream();
     changeColor();
@@ -64,7 +77,13 @@ class _StreamHomePageState extends State<StreamHomePage> {
   @override
   void dispose() {
     numberStream.close();
+    subscription.cancel();
     super.dispose();
+  }
+
+  void stopStream() {
+    numberStream.addError();
+    numberStream.close();
   }
 
   @override
@@ -83,6 +102,9 @@ class _StreamHomePageState extends State<StreamHomePage> {
               ElevatedButton(
                   onPressed: () => addRandomNumber(),
                   child: const Text('Add Random Number')),
+              ElevatedButton(
+                  onPressed: () => stopStream(),
+                  child: const Text('Stop Stream')),
             ],
           ),
         ));

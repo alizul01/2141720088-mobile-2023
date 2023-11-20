@@ -42,3 +42,9 @@
     Ketika stream telah selesai (done), fungsi ini akan dipanggil. Pada saat itu, sink akan ditutup (closed).
 
 ![Alt text](image-1.png)
+
+4. Subscription
+Fungsi `addRandomNumber` digunakan untuk menambahkan random number ke dalam stream. Dalam kode ini, nantinya akan ada angka acak antara 0 dan 9 dihasilkan, dan kemudian dicek apakah stream masih terbuka. Jika ya, angka tersebut ditambahkan ke dalam stream menggunakan metode addNumber. Namun, jika stream sudah ditutup, nilai lastNumber diubah menjadi -1 menggunakan setState. Ini bertujuan untuk menangani case ketika stream sudah tidak dapat menerima nilai baru.
+
+
+![Alt text](image-2.png)
