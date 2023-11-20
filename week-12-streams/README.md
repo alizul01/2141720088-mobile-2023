@@ -62,3 +62,7 @@ Fungsi `addRandomNumber` digunakan untuk menambahkan random number ke dalam stre
     b. initialData: Nilai awal yang diberikan sebelum data aktual dari stream tersedia.
     c. builder: Membangun antarmuka pengguna berdasarkan snapshot dari stream.
 ![Alt text](image-4.png)
+7. BLoC
+Singkatnya BLoC adalah arsitektur untuk state management untuk memudahkan pengembangan aplikasi. BLoC memungkinkan kita untuk memisahkan logika bisnis dari UI.
+Letak konsep pola BLoC pada praktikum ini adalah pada file random_bloc.dart dan random_screen.dart. File random_bloc.dart berisi kelas RandomNumberBloc, yang merupakan komponen logika bisnis yang bertanggung jawab untuk menghasilkan angka acak dan mengirimkannya ke stream. File random_screen.dart berisi kelas RandomScreen, yang merupakan komponen UI yang menampilkan angka acak dari stream dan memanggil fungsi generateRandomNumber dari bloc saat tombol refresh ditekan. Kedua file ini saling berkomunikasi melalui stream controller, yang merupakan inti dari pola BLoC.
+![Alt text](image-5.png)
