@@ -18,7 +18,9 @@ class _StreamHomePageState extends State<StreamHomePage> {
   late StreamController<int> _numberStreamController;
   late NumberStream numberStream;
   late StreamSubscription subscription;
+  late StreamSubscription subscription2;
 
+  String values = '';
   StreamTransformer<int, int> transformer =
       StreamTransformer<int, int>.fromHandlers(
           handleData: (value, sink) {
@@ -53,12 +55,13 @@ class _StreamHomePageState extends State<StreamHomePage> {
   void initState() {
     numberStream = NumberStream();
     _numberStreamController = numberStream.streamController;
-    Stream stream = _numberStreamController.stream;
+    Stream stream = _numberStreamController.stream.asBroadcastStream();
     subscription = stream.listen((event) {
       setState(() {
-        lastNumber = event;
+        values += '$event - ';
       });
     });
+
     subscription.onError((error) {
       print(error);
       setState(() {
@@ -89,24 +92,34 @@ class _StreamHomePageState extends State<StreamHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Stream'),
-        ),
-        body: SizedBox(
+      appBar: AppBar(
+        title: const Text('Stream'),
+      ),
+      body: Container(
+        padding: const EdgeInsets.all(16.0),
+        color: Colors.purple.shade50,
+        child: SizedBox(
           width: double.infinity,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(lastNumber.toString()),
+              Text(
+                values,
+                style: const TextStyle(fontSize: 18.0),
+              ),
               ElevatedButton(
-                  onPressed: () => addRandomNumber(),
-                  child: const Text('Add Random Number')),
+                onPressed: () => addRandomNumber(),
+                child: const Text('Add Random Number'),
+              ),
               ElevatedButton(
-                  onPressed: () => stopStream(),
-                  child: const Text('Stop Stream')),
+                onPressed: () => stopStream(),
+                child: const Text('Stop Stream'),
+              ),
             ],
           ),
-        ));
+        ),
+      ),
+    );
   }
 }

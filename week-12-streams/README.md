@@ -48,3 +48,11 @@ Fungsi `addRandomNumber` digunakan untuk menambahkan random number ke dalam stre
 
 
 ![Alt text](image-2.png)
+
+5. Error terjadi karena listen terjadi 2x
+5.1 Penjelasan Kode
+    a. Mendeklarasikan variabel values sebagai string kosong. Nantinya, nilai dari stream akan ditambahkan ke dalam string ini
+    b. Mengubah stream dari _numberStreamController menjadi broadcast stream menggunakan metode asBroadcastStream(). Ini memungkinkan multiple subscriptions pada stream yang sama.
+    c. Membuat subscription pada stream dan listen event. Setiap kali ada data baru pada stream, nilai tersebut ditambahkan ke dalam variabel values dan diupdate menggunakan setState.
+    
+![Alt text](image-3.png)
