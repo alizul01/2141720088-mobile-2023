@@ -40,3 +40,5 @@
     ```
 
     Ketika stream telah selesai (done), fungsi ini akan dipanggil. Pada saat itu, sink akan ditutup (closed).
+
+![Alt text](image-1.png)
