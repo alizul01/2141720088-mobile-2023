@@ -9,4 +9,13 @@ class ColorStream {
     Colors.purple,
     Colors.orange,
   ];
+
+  Stream<Color> get stream async* {
+    while (true) {
+      for (final color in colors) {
+        yield color;
+      }
+    }
+  }
+  
 }
